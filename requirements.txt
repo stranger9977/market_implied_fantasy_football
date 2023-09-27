@@ -1,0 +1,8 @@
+pandas==1.5.3
+numpy==1.23.5
+matplotlib==3.7.1
+seaborn==0.12.2
+nfl-data-py==0.3.1
+urllib3==2.0.4
+requests==2.31.0
+python-dotenv==0.19.1
