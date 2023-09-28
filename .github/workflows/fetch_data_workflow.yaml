@@ -49,6 +49,11 @@ jobs:
     - name: Pull latest changes from remote
       run: git pull origin data-update-branch || true
 
+    - name: Rebase to latest changes from remote
+      run: |
+        git fetch origin data-update-branch
+        git rebase origin/data-update-branch || true
+
     - name: Push changes
       run: git push -u origin data-update-branch
 
