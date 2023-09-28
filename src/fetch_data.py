@@ -8,7 +8,7 @@ import re
 from datetime import timedelta
 
 api_key = os.environ.get("API_KEY")
-
+print(api_key)
 
 # Get the current time in ISO8601 format
 current_time_iso = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
