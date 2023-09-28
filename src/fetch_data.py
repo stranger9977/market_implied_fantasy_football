@@ -17,14 +17,14 @@ current_time_iso = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 # Regions and Markets
 regions = ["us",'us2']
 # check this out for avaialble markets https://the-odds-api.com/sports-odds-data/betting-markets.html
-markets = [    'player_anytime_td']
-    # 'player_pass_completions',
-    # 'player_pass_interceptions',
-    # 'player_pass_tds',
-    # 'player_pass_yds',
-    # 'player_reception_yds',
-    # 'player_receptions',
-    # 'player_rush_yds']
+markets = [    'player_anytime_td'
+    'player_pass_completions',
+    'player_pass_interceptions',
+    'player_pass_tds',
+    'player_pass_yds',
+    'player_reception_yds',
+    'player_receptions',
+    'player_rush_yds']
 
 format = "american"
 
@@ -117,7 +117,7 @@ odds_df['run_date'] = current_time
 project_root = os.environ.get("PROJECT_ROOT", os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 print(project_root)
 # Create the full path for the CSV file
-csv_file_path = os.path.join(project_root, 'market_implied_fantasy_football_tools', 'data', 'raw', 'odds.csv')
+csv_file_path = os.path.join(project_root, 'data', 'raw', 'odds.csv')
 
 # Create the directory if it doesn't exist
 directory = os.path.dirname(csv_file_path)
