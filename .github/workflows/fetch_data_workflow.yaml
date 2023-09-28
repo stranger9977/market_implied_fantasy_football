@@ -47,10 +47,10 @@ jobs:
       run: git checkout -b data-update-branch || git checkout data-update-branch
 
     - name: Pull latest changes from remote
-      run: git pull origin data-update-branch || true
+      run: git pull origin main || true
 
     - name: Push changes
-      run: git push -u origin main
+      run: git push -u origin data-update-branch
 
     - name: Create Pull Request
       uses: repo-sync/pull-request@v2
