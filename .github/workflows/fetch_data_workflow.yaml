@@ -48,10 +48,9 @@ jobs:
       run: |
         git checkout -b data-update-branch || git checkout data-update-branch
 
-    - name: Force pull latest changes from remote
+    - name: Merge latest changes from remote
       run: |
-        git fetch origin data-update-branch
-        git reset --hard FETCH_HEAD
+        git pull origin data-update-branch || true
 
     - name: Push changes
       run: |
@@ -75,3 +74,6 @@ jobs:
       run: |
         pr_number=$(gh pr list --base main --json number -q '.[0].number')
         gh pr review --approve $pr_number
+    - name: Show Git Log
+      run: git log --oneline -n 5
+
