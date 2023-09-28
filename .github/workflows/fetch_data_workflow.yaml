@@ -1,6 +1,7 @@
 name: Fetch Data
 
 on:
+  workflow_dispatch:
   schedule:
     - cron:  '30 11 * * *'
 
