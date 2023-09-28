@@ -42,30 +42,4 @@ jobs:
         git add -A
         timestamp=$(date -u)
         git commit -m "Automated data update $timestamp" || exit 0
-
-    - name: Create or checkout branch
-      run: git checkout -b data-update-branch || git checkout data-update-branch
-
-    - name: Pull latest changes from remote
-      run: git pull origin data-update-branch || true
-
-    - name: Push changes
-      run: git push -u origin data-update-branch
-
-    - name: Create Pull Request
-      uses: repo-sync/pull-request@v2
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        pr_title: "Automated data update"
-        pr_body: "Update data files"
-        pr_label: "automated-pr"
-        pr_allow_empty: false
-        destination_branch: main
-        source_branch: data-update-branch  # <-- Add this line
-
-    - name: Approve Pull Request
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        pr_number=$(gh pr list --base main --json number -q '.[0].number')
-        gh pr review --approve $pr_number
+        git push origin main
