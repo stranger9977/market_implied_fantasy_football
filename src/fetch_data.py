@@ -131,6 +131,12 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..
 # Create the full path for the CSV file
 csv_file_path = os.path.join(project_root, 'market_implied_fantasy_football_tools', 'data', 'raw', 'odds.csv')
 
+# Create the directory if it doesn't exist
+directory = os.path.dirname(csv_file_path)
+if not os.path.exists(directory):
+    os.makedirs(directory)
+
 # Save the DataFrame to CSV
 odds_df.to_csv(csv_file_path, index=False)
+
 
