@@ -61,6 +61,7 @@ jobs:
         pr_label: "automated-pr"
         pr_allow_empty: false
         destination_branch: main
+        source_branch: data-update-branch  # <-- Add this line
 
     - name: Approve Pull Request
       env:
