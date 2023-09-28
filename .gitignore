@@ -122,7 +122,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
-myenv/
+/Users/nick/market_implied_fantasy_football_tools/myenv/
 venv/
 ENV/
 env.bak/
