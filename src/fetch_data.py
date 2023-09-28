@@ -41,7 +41,7 @@ commence_time_to = current_time_iso
 try:
     existing_df = pd.read_csv('data/raw/odds.csv')
     last_run_date = pd.to_datetime(existing_df['run_date'].max())
-    if (datetime.utcnow() - last_run_date) < timedelta(hour=1):
+    if (datetime.utcnow() - last_run_date) < timedelta(hours=1):
         print("API request made in the last hour. Exiting.")
         exit()
 except FileNotFoundError:
