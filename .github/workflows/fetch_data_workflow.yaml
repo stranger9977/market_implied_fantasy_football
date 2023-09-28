@@ -46,10 +46,8 @@ jobs:
     - name: Create or checkout branch
       run: git checkout -b data-update-branch || git checkout data-update-branch
 
-    - name: Merge latest changes from main
-      run: |
-        git fetch origin main
-        git merge origin/main || true
+    - name: Pull latest changes from remote
+      run: git pull origin data-update-branch || true
 
     - name: Push changes
       run: git push -u origin data-update-branch
@@ -70,6 +68,3 @@ jobs:
       run: |
         pr_number=$(gh pr list --base main --json number -q '.[0].number')
         gh pr review --approve $pr_number
-
-
-
