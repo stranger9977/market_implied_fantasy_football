@@ -47,7 +47,7 @@ jobs:
       run: git checkout -b data-update-branch || git checkout data-update-branch
 
     - name: Pull latest changes from remote
-      run: git pull remote data-update-branch || true
+      run: git pull
 
     - name: Push changes
       run: git push -u origin data-update-branch
