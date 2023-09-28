@@ -7,7 +7,7 @@ import pandas as pd
 import re
 from datetime import timedelta
 
-api_key = os.environ.get("ODDS_API_KEY")
+api_key = os.environ.get("API_KEY")
 
 
 # Get the current time in ISO8601 format
