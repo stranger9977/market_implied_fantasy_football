@@ -36,7 +36,22 @@ jobs:
         git add -A
         timestamp=$(date -u)
         git commit -m "Automated data update $timestamp" || exit 0
-        git push
+    - name: Push changes
+      run: |
+        git push origin data-update-branch
 
+    - name: Create Pull Request
+      uses: repo-sync/pull-request@v2
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        pr_title: "Automated data update"
+        pr_body: "Update data files"
+        pr_label: "automated-pr"
+        pr_allow_empty: false  # Change to true if you want to allow empty PRs
+
+    - name: Approve Pull Request
+      run: |
+        pr_number=$(gh pr list --base main --json number -q '.[0].number')
+        gh pr review --approve $pr_number
 
     
