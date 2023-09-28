@@ -50,7 +50,7 @@ jobs:
       run: git pull origin data-update-branch || true
 
     - name: Push changes
-      run: git push -u origin data-update-branch
+      run: git push -u origin main
 
     - name: Create Pull Request
       uses: repo-sync/pull-request@v2
