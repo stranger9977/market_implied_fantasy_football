@@ -27,9 +27,11 @@ jobs:
 
     - name: Commit and push if changed
         run: |
-              git config --local user.email "action@github.com"
-              git config --local user.name "GitHub Action"
-              git add -A
-              timestamp=$(date -u)
-              git commit -m "Automated data update $timestamp" || exit 0
-              git push
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          timestamp=$(date -u)
+          git commit -m "Automated data update $timestamp" || exit 0
+          git push
+
+    
