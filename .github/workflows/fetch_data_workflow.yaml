@@ -61,6 +61,8 @@ jobs:
         pr_body: "Update data files"
         pr_label: "automated-pr"
         pr_allow_empty: false  # Change to true if you want to allow empty PRs
+        destination_branch: main  # <-- Add this line
+
 
     - name: Approve Pull Request
       run: |
