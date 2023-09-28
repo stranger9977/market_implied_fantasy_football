@@ -8,13 +8,11 @@ import re
 from datetime import timedelta
 
 api_key = os.environ.get("API_KEY")
-print(api_key)
 
 # Get the current time in ISO8601 format
 current_time_iso = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 
-# Your API key
-api_key = api_key
+
 
 # Regions and Markets
 regions = ["us",'us2']
@@ -37,15 +35,6 @@ markets_str = ",".join(markets)
 # Date range for filtering events (for the current time)
 commence_time_from = current_time_iso
 commence_time_to = current_time_iso
-
-try:
-    existing_df = pd.read_csv('data/raw/odds.csv')
-    last_run_date = pd.to_datetime(existing_df['run_date'].max())
-    if (datetime.utcnow() - last_run_date) < timedelta(hours=1):
-        print("API request made in the last hour. Exiting.")
-        exit()
-except FileNotFoundError:
-    print("No existing data found. Proceeding with API request.")
 
 # Step 1: Fetch event IDs
 url_events = f"https://api.the-odds-api.com/v4/sports/americanfootball_nfl/events/?apiKey={api_key}&regions={regions_str}&commenceTimeFrom={commence_time_from}&commenceTimeTo={commence_time_to}&oddsFormat={format}"
@@ -125,16 +114,19 @@ current_time = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S")
 odds_df['run_date'] = current_time
 
 # Get the project root directory dynamically
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-
+project_root = os.environ.get("PROJECT_ROOT", os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+print(project_root)
 # Create the full path for the CSV file
-csv_file_path = os.path.join(project_root, 'data', 'raw', 'odds.csv')
+csv_file_path = os.path.join(project_root, 'market_implied_fantasy_football_tools', 'data', 'raw', 'odds.csv')
 
 # Create the directory if it doesn't exist
 directory = os.path.dirname(csv_file_path)
 if not os.path.exists(directory):
     os.makedirs(directory)
 
+most_recent_run_date = odds_df['run_date'].max()
+
+print(f"The most recent run_date is: {most_recent_run_date}")
 # Save the DataFrame to CSV
 odds_df.to_csv(csv_file_path, index=False)
 
