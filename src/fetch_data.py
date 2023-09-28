@@ -52,7 +52,7 @@ except FileNotFoundError:
 url_events = f"https://api.the-odds-api.com/v4/sports/americanfootball_nfl/events/?apiKey={api_key}&regions={regions_str}&commenceTimeFrom={commence_time_from}&commenceTimeTo={commence_time_to}&oddsFormat={format}"
 response_events = requests.get(url_events)
 events_data = response_events.json()
-
+print(events_data)
 # Extract event IDs
 event_ids = [event['id'] for event in events_data]
 
