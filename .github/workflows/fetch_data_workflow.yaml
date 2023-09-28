@@ -9,7 +9,7 @@ jobs:
   fetch_data:
     runs-on: ubuntu-latest
     env:
-      API_KEY: ${{ secrets.API_KEY }}
+      API_KEY: ${{ secrets.ODDS_API_KEY }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
