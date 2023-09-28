@@ -44,9 +44,14 @@ jobs:
         timestamp=$(date -u)
         git commit -m "Automated data update $timestamp" || exit 0
 
+    - name: Create or checkout branch
+      run: |
+        git checkout -b data-update-branch || git checkout data-update-branch
+
     - name: Push changes
       run: |
-        git push origin data-update-branch
+        git push -u origin data-update-branch
+
 
     - name: Create Pull Request
       uses: repo-sync/pull-request@v2
