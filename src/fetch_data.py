@@ -129,7 +129,7 @@ odds_df['run_date'] = current_time
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 # Create the full path for the CSV file
-csv_file_path = os.path.join(project_root, 'market_implied_fantasy_football_tools', 'data', 'raw', 'odds.csv')
+csv_file_path = os.path.join(project_root, 'data', 'raw', 'odds.csv')
 
 # Create the directory if it doesn't exist
 directory = os.path.dirname(csv_file_path)
