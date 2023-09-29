@@ -5,14 +5,15 @@
 
 ## Data Storage & Workflow
 
-- [ ] Automate the storage of the data.
-- [ ] Ensure GitHub Action workflow works as intended.
+- [✅] Automate the storage of the data.
+- [✅] Ensure GitHub Action workflow works as intended. - Updates each day at 11EST and also can be done manually. 
 
 ## Data Fetching
 
+- [ ] https://github.com/nektos/act - learn this for testing purposes. 
 - [ ] Add more sources to the `fetch_data.py` file.
 - [ ] Write tests for new data sources.
-- [ ] Learn the package Ben mentioned.
+
 
 ## Data Processing
 
