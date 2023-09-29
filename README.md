@@ -2,7 +2,6 @@
 
 ## General
 
-- [ ] Share repo with Ben, Andy, and Rob.
 
 ## Data Storage & Workflow
 
