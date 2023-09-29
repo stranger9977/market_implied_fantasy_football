@@ -51,6 +51,7 @@ for event_id in event_ids:
     url_odds = f"https://api.the-odds-api.com/v4/sports/americanfootball_nfl/events/{event_id}/odds/?apiKey={api_key}&regions={regions_str}&markets={markets_str}&oddsFormat={format}"
     response_odds = requests.get(url_odds)
     odds_data = response_odds.json()
+    print(odds_data)
 
     # Store the fetched data along with the event_id
     fetched_data.append({'event_id': event_id, 'odds_data': odds_data})
