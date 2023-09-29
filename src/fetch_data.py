@@ -17,7 +17,7 @@ current_time_iso = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
 # Regions and Markets
 regions = ["us",'us2']
 # check this out for avaialble markets https://the-odds-api.com/sports-odds-data/betting-markets.html
-markets = [    'player_anytime_td'
+markets = [ 'player_anytime_td',
     'player_pass_completions',
     'player_pass_interceptions',
     'player_pass_tds',
