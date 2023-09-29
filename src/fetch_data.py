@@ -118,7 +118,7 @@ odds_df['run_date'] = current_time
 project_root = os.environ.get("PROJECT_ROOT", os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 print(project_root)
 # Create the full path for the CSV file
-csv_file_path = os.path.join(project_root, 'data', 'raw', 'odds.csv')
+csv_file_path = os.path.join(project_root, 'data', 'raw', 'projection_odds.csv')
 
 # Create the directory if it doesn't exist
 directory = os.path.dirname(csv_file_path)
