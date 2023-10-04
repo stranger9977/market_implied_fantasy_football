@@ -128,7 +128,11 @@ if not os.path.exists(directory):
 most_recent_run_date = odds_df['run_date'].max()
 
 print(f"The most recent run_date is: {most_recent_run_date}")
-# Save the DataFrame to CSV
-odds_df.to_csv(csv_file_path, index=False)
+# Check if the CSV file already exists to decide whether to write header
+write_header = not os.path.exists(csv_file_path)
+
+# Append the data to the CSV file
+odds_df.to_csv(csv_file_path, mode='a', header=write_header, index=False)
+
 
 
