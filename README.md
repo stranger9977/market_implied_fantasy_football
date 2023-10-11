@@ -1,4 +1,4 @@
-# Catchy Name Here: Fantasy Football Forecasting App
+# Leverageing the Vegas Player Prop Market: Fantasy Sports Forecasting App
 
 ## Overview
 This is a full-stack web application designed to forecast fantasy football outcomes using Vegas sportsbook odds data. The application provides data-driven, validated projections, waiver wire recommendations, and optimal DFS lineups. It aims to help users increase their success rate in various types of fantasy football contest formats, streamlining the process with a focus on data science best practices.
